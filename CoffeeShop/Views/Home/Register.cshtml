@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Edit", "Register", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Enter product name" })
+        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description)
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control", placeholder = "Enter middle name" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Price)
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control", placeholder = "Enter price" })
+        @Html.ValidationMessageFor(x => x.Price, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.DropDownList("ProductFun", new SelectList(Enum.GetValues(typeof(Fun))), "Fun or Not?", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ProductFun, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
