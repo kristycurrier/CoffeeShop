@@ -14,7 +14,11 @@ namespace CoffeeShop.Controllers
         public ActionResult Index()
         {
             var user = new RegisterModel();
-            return View(user);
+            if(ModelState.IsValid)
+            { 
+                return View(user);
+            }
+            return View();
         }
 
         public ActionResult Wecome()
@@ -24,8 +28,8 @@ namespace CoffeeShop.Controllers
 
         [HttpPost]
         public ActionResult Welcome(RegisterModel user)
-        { 
-            return View(user);
+        {
+                return View(user);
         }
     }
 }
