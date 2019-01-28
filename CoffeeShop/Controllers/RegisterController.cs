@@ -17,13 +17,13 @@ namespace CoffeeShop.Controllers
             return View(user);
         }
 
-        public ActionResult InfoSaved()
+        public ActionResult Wecome()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult InfoSaved(RegisterModel user)
+        public ActionResult Welcome(RegisterModel user)
         { 
             return View(user);
         }
