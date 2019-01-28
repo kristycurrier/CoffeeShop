@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+@using CoffeeShop.Models
+@model RegisterModel
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("InfoSaved", "Register", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.FirstName)
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "Enter first name" })
+        @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.LastName)
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Enter last name" })
+        @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.DropDownList("UserGender", new SelectList(Enum.GetValues(typeof(Gender))), "Enter your gender?", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UserGender, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Enter email" })
+        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.PhoneNumber)
+        @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", placeholder = "Enter phone number" })
+        @Html.ValidationMessageFor(x => x.PhoneNumber, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+}

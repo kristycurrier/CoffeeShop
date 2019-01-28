@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "InfoSaved";
+}
+@using CoffeeShop.Models
+@model RegisterModel
+
+@if(Model != null)
+{
+    <h2><div>Welcome @Model.FirstName!</div></h2>
+}else{ <p>No user info</p>}
+
+
